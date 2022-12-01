@@ -8,7 +8,7 @@ import { Header } from "./Header";
 // import './App.css';
 
 const todos = [
-  { id: "1", text: "hacer arepas", completed: false },
+  { id: "1", text: "hacer arepas", completed: true },
   { id: "2", text: "hacer Almuerzo", completed: false },
   { id: "3", text: "hacer desayuno", completed: false },
   { id: "4", text: "hacer desayuno", completed: false },
@@ -22,7 +22,7 @@ function App() {
         <TodoSearch />
         <TodoList>
           {todos.map((todo) => (
-            <TodoItem key={todo.id} text={todo.text} />
+            <TodoItem key={todo.id} text={todo.text} completed={todo.completed} />
           ))}
         </TodoList>
 
