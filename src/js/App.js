@@ -1,6 +1,6 @@
 import React from "react";
 
-import  {AppUX} from "./AppUX"
+import { AppUX } from "./AppUX";
 
 // const defaultTodos = [
 //   { id: "1", text: "hacer arepas", completed: 1 },
@@ -9,30 +9,49 @@ import  {AppUX} from "./AppUX"
 //   { id: "4", text: "hacer CENA", completed: 0 },
 // ];
 
+// React Hook Personalizado
+
+function useLocalStorage(itemName , initialValue) {
+  
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
+
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStorageItem);
+  }
+  
+  const [item, setItem] = React.useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    const jsonItem = JSON.stringify(newItem);
+    localStorage.setItem(itemName, jsonItem);
+    setItem(newItem);
+  };
+
+  return [
+    item,
+    saveItem
+  ];
+}
+
 function App() {
 
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-  let parsedTodos;
+  const [todos ,saveTodos ] = useLocalStorage('TODOS_V1',[]);
 
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
-  }else{
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
+  const [searchValue, setSearchValue] = React.useState("");
 
-  const [todos, setTodos] = React.useState(parsedTodos);
-  const [searchValue, setSearchValue] = React.useState('');
-
-  const completedjTodos = todos.filter(todo => !!todo.completed).length;
+  const completedjTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
   let todosFiltered = [];
 
-  if(!searchValue.length >=1){
+  if (!searchValue.length >= 1) {
     todosFiltered = todos;
-  }else{
-    todosFiltered = todos.filter(todo => {
+  } else {
+    todosFiltered = todos.filter((todo) => {
       const todoText = todo.text.toLowerCase();
       const todoSearch = searchValue.toLowerCase();
 
@@ -40,37 +59,38 @@ function App() {
     });
   }
 
-  const saveTodos = (newTodos) =>{
-    const jsonTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', jsonTodos);
-    setTodos(newTodos)
-  }
-
-  const completeTodo = (id) =>{
-    const todoIndex = todos.findIndex(todo => todo.id === id);
+  const completeTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     // setTodos(newTodos);
     saveTodos(newTodos);
-  }
-  
-  const deleteTodo = (id) =>{
-    const todoIndex = todos.findIndex(todo => todo.id === id);
+  };
+
+  const deleteTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
     // setTodos(newTodos);
-  }
-
+  };
+  console.log('RENDER antes de Use Effect');
+  
+  // se ejecuta cuando se cumple cierta condicion o ve amcbios en alguna seccion que le digamos por ejemplo la cambio en el total de todos 
+  React.useEffect(()=>{
+    console.log('Codigo de Use Effect');
+  },[totalTodos]);
+  
+  console.log('RENDER Despues de Use Effect');
   return (
-    <AppUX 
-      totalTodos = {totalTodos}
-      completedjTodos = {completedjTodos}
-      searchValue = {searchValue}
-      setSearchValue = {setSearchValue}
-      todosFiltered = {todosFiltered}
-      completeTodo = {completeTodo}
-      deleteTodo = {deleteTodo}
+    <AppUX
+      totalTodos={totalTodos}
+      completedjTodos={completedjTodos}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      todosFiltered={todosFiltered}
+      completeTodo={completeTodo}
+      deleteTodo={deleteTodo}
     />
   );
 }
