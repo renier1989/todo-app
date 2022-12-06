@@ -1,9 +1,13 @@
 import React from "react";
 
 function CreateTodoButton() {
+  const buttonClick = (msg)=>{
+    console.log(msg);
+  };
+
   return (
-    <div className="flex justify-end"
-      onClick={()=>console.log('hola')}
+    <div className="flex justify-end" 
+    onClick={()=> buttonClick('hola como estas')}
     >
       
         <svg
