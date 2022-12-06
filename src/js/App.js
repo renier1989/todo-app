@@ -12,34 +12,63 @@ import { AppUX } from "./AppUX";
 // React Hook Personalizado
 
 function useLocalStorage(itemName , initialValue) {
-  
-  const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem;
 
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
+  const [error, setError] = React.useState(false);
+
+  const [loading, setLoading] = React.useState(true);
+
+  const [item, setItem] = React.useState(initialValue);
+  React.useEffect(()=>{
+    try {
+      // simulamos que se esta cargando la data de la BD
+      setTimeout(()=>{
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
+      
+        if (!localStorageItem) {
+          localStorage.setItem(itemName, JSON.stringify(initialValue));
+          parsedItem = initialValue;
+        } else {
+          parsedItem = JSON.parse(localStorageItem);
+        }
+
+        setItem(parsedItem);
+        setLoading(false);
+      }, 1000)
+    } catch (error) {
+      setError(error)
+    }
+    
+  });
   
-  const [item, setItem] = React.useState(parsedItem);
 
   const saveItem = (newItem) => {
-    const jsonItem = JSON.stringify(newItem);
-    localStorage.setItem(itemName, jsonItem);
-    setItem(newItem);
+    try {
+      const jsonItem = JSON.stringify(newItem);
+      localStorage.setItem(itemName, jsonItem);
+      setItem(newItem);
+    } catch (error) {
+      setError(error)
+    }
+    
   };
 
-  return [
-    item,
-    saveItem
-  ];
+  return {
+    item ,
+    saveItem ,
+    loading,
+    error,
+  };
 }
 
 function App() {
 
-  const [todos ,saveTodos ] = useLocalStorage('TODOS_V1',[]);
+  const {
+      item :todos ,
+      saveItem : saveTodos, 
+      loading,
+      error,
+    }  = useLocalStorage('TODOS_V1',[]);
 
   const [searchValue, setSearchValue] = React.useState("");
 
@@ -74,16 +103,11 @@ function App() {
     saveTodos(newTodos);
     // setTodos(newTodos);
   };
-  console.log('RENDER antes de Use Effect');
   
-  // se ejecuta cuando se cumple cierta condicion o ve amcbios en alguna seccion que le digamos por ejemplo la cambio en el total de todos 
-  React.useEffect(()=>{
-    console.log('Codigo de Use Effect');
-  },[totalTodos]);
-  
-  console.log('RENDER Despues de Use Effect');
   return (
     <AppUX
+      loading={loading}
+      error={error}
       totalTodos={totalTodos}
       completedjTodos={completedjTodos}
       searchValue={searchValue}
