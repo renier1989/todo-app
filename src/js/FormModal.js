@@ -29,7 +29,8 @@ function FormModal (){
                     value={newTodoValue}
                     onChange={onChange}
                     rows="4" 
-                    cols="50" 
+                    cols="50"
+                    placeholder='Ir al supermercado por pan.' 
                     ></textarea>
                 </div>
                 <div className='text-center space-x-20 mt-3'>

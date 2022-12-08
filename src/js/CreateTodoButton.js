@@ -7,13 +7,13 @@ function CreateTodoButton(props) {
 
   return (
     <div className="flex justify-end " 
-        onClick={buttonClick}
+        
     >
-      
         <svg
+        onClick={buttonClick}
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
-          className="bi bi-plus-circle-fill w-16 h-16 cursor-pointer z-10"
+          className="bi bi-plus-circle-fill w-16 h-16 cursor-pointer"
           viewBox="0 0 16 16"
         >
           <path
