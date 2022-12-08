@@ -34,7 +34,7 @@ function TodoItem(props) {
         // className="text-lg font-bold text-gray-700 line-through"
         // style={{ textDecoration: props.completed && "line-through" }}
         
-        >{props.text} - {props.completed}</p>
+        >{props.text}</p>
         <span className="absolute -top-1 right-2 cursor-pointer"
         onClick={props.onDelete}
         >

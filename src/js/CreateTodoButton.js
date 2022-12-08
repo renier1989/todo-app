@@ -1,19 +1,19 @@
 import React from "react";
 
-function CreateTodoButton() {
-  const buttonClick = (msg)=>{
-    console.log(msg);
+function CreateTodoButton(props) {
+  const buttonClick = ()=>{
+      props.setOpenModal(prevState => !prevState)
   };
 
   return (
-    <div className="flex justify-end" 
-    onClick={()=> buttonClick('hola como estas')}
+    <div className="flex justify-end " 
+        onClick={buttonClick}
     >
       
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
-          className="bi bi-plus-circle-fill w-16 h-16 cursor-pointer "
+          className="bi bi-plus-circle-fill w-16 h-16 cursor-pointer z-10"
           viewBox="0 0 16 16"
         >
           <path
