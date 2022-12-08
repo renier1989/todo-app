@@ -1,5 +1,5 @@
 # TODO-APP
-## _Hecho bajo el curso de Plazty "Curso de Introducción a React.js"_
+## _Hecho bajo el curso de Platzi "Curso de Introducción a React.js"_
 
 <!-- [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) -->
 
@@ -8,9 +8,9 @@ es una version compatible con mobile,
 
 - Administrar tu Tareas
 - Crear nuevas Tareas
-- Competar Tus Tareas
+- Completar Tus Tareas
 - Eliminar tus Tareas
-- visualizar estado de tus tareas
+- Visualizar estado de tus tareas
 
 ## Tech
 
