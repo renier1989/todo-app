@@ -15,11 +15,11 @@ return (
     <TodoSearch  />
 
     <TodoContext.Consumer>
-        {({ error ,
-            loading , 
-            todosFiltered ,
-            completeTodo ,
-            deleteTodo
+        {({ error,
+            loading, 
+            todosFiltered,
+            completeTodo,
+            deleteTodo,
         })=>(
             <TodoList>
                 {error && <p>Hubo un error en la aplicacion....</p>}
