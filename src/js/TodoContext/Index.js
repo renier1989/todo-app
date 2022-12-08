@@ -34,7 +34,7 @@ function TodoProvider(props){
       
       const newTodos = [...todos];
       newTodos.push({
-        id : totalTodos+1,
+        id : Math.floor(Math.random() * 999999),
         completed : false,
         text : text
       })
