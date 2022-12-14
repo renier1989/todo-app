@@ -461,3 +461,23 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.fixed {
+  position: fixed;
+}
+.h-full {
+  height: 100%;
+}
+.w-full {
+  width: 100%;
+}
+.bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 237 218 / var(--tw-bg-opacity));
+}
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+.font-Abel {
+  font-family: Abel, san-serif;
+}
