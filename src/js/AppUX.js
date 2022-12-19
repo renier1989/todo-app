@@ -8,6 +8,7 @@ import { Header } from "./Header";
 import { FormModal } from "./FormModal";
 import { TodoContext } from "./TodoContext";
 import { Modal } from "./Modal";
+import { FooterMobile } from "./FooterMobile";
 
 
 function AppUX() {
@@ -17,11 +18,12 @@ function AppUX() {
             completeTodo,
             deleteTodo,
             openModal,
+            changeDarkMode,
             setOpenModal,
             } = React.useContext(TodoContext);
 return (
     <React.Fragment>
-    <Header />
+    <Header changeDarkMode = {changeDarkMode} />
     <TodoCounter  />
     <TodoSearch  />
 
@@ -48,9 +50,11 @@ return (
     )}
 
 
-    <CreateTodoButton
+    <CreateTodoButton setOpenModal = {setOpenModal}>+</CreateTodoButton>
+    <FooterMobile 
     setOpenModal = {setOpenModal}
-    >+</CreateTodoButton>
+    changeDarkMode = {changeDarkMode}
+    > </FooterMobile>
     </React.Fragment>
 );
 }

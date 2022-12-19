@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="">
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/logo.svg" />
@@ -21,7 +20,7 @@
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div class="font-Abel w-full h-full bg-secondary fixed px-24">
+  <div class="font-Abel w-full h-full bg-secondary dark:bg-gray-700 fixed px-6 lg:px-80">
 
     <div id="root"></div>
     <div id="modal"></div>
@@ -31,3 +30,17 @@
 </body>
 
 </html>
+<!-- <script>
+  const htmlElement = document.querySelector("html");
+  const toggleButton = document.querySelector("#toggle");
+  const toggleButtonSm = document.querySelector("#toggle-sm");
+
+  console.log('hola',toggleButtonSm);
+
+  toggleButton.addEventListener("click" , () => toggleDarkMode())
+  toggleButtonSm.addEventListener("click" , () => toggleDarkMode())
+
+  const toggleDarkMode = () => {
+      htmlElement.classList.toggle("dark")
+  }
+</script> -->

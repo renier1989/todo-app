@@ -14,6 +14,7 @@ function TodoProvider(props){
   
     const [searchValue, setSearchValue] = React.useState("");
     const [openModal, setOpenModal ] = React.useState(false);
+    // const [changeDarkMode, setChangeDarkMode ] = React.useState(false);
     const completedTodos = todos.filter((todo) => !!todo.completed).length;
     const totalTodos = todos.length;
   
@@ -58,6 +59,21 @@ function TodoProvider(props){
       // setTodos(newTodos);
     };
 
+    const changeDarkMode = () => {
+      const htmlElement = document.querySelector("html");
+      const toggleButton = document.querySelector("#toggle");
+      const toggleButtonSm = document.querySelector("#toggle-sm");
+
+      console.log(toggleButtonSm);
+
+      toggleButton.addEventListener("click" , () => toggleDarkMode())
+      toggleButtonSm.addEventListener("click" , () => toggleDarkMode())
+
+      const toggleDarkMode = () => {
+          htmlElement.classList.toggle("dark")
+      }
+    }
+
     return(
     <TodoContext.Provider value={{
         loading,
@@ -72,6 +88,7 @@ function TodoProvider(props){
         addTodo,
         openModal,
         setOpenModal,
+        changeDarkMode,
     }}>
         {props.children}
     </TodoContext.Provider>
