@@ -5,16 +5,17 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      backgroundImage: {
+        'logo': "url('../img/logo.png')",
+        'logoDark': "url('../img/logo-dark.png')",
+      },
       colors : {
         'primary': '#EE4E34',
-        'primary-light': '#ee4e347d',
-        'primary-dark': '#c1321b',
+        'primary-light': '#E67260',
+        'primary-dark': '#C93E2C',
         'secondary' : '#FCEDDA',
-        'secondary-dark': '#cdc0af',
-        'secondary-light': '#fff9f1',
-      },
-      backgroundImage: {
-        'logo': "url('./public/logo.png')",
+        'secondary-dark': '#F1E2D0',
+        'secondary-light': '#FCF1E3',
       },
       backgroundColor:theme =>({
         ...theme('colors'),

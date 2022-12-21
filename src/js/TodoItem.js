@@ -14,7 +14,7 @@ function TodoItem(props) {
 
   return (
     <div className="w-full text-secondary">
-      <li className="flex my-3 bg-primary p-5 rounded-lg justify-center relative">
+      <li className="flex my-3 bg-primary p-5 rounded-lg justify-center relative dark:bg-gray-600">
         <span className="absolute left-5" 
         onClick={props.onComplete}
         >
@@ -24,13 +24,13 @@ function TodoItem(props) {
             className="bi bi-file-check-fill w-6 h-6 cursor-pointer"
             viewBox="0 0 16 16"
           >
-            <path className={`fill-current  text-secondary hover:text-secondary-dark ${props.completed && 'text-secondary-light hover:text-secondary' }`} 
+            <path className={`fill-current  text-secondary hover:text-secondary-dark ${props.completed && 'text-gray-600 hover:text-gray-500 dark:text-gray-400 ' }`} 
             d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
           </svg>
         </span>
         <p 
         // eslint-disable-next-line no-template-curly-in-string
-        className={`text-lg font-bold pl-10  ${props.completed ? 'line-through' : null }`}
+        className={`text-lg font-bold pl-10  ${props.completed ? 'line-through text-gray-700 dark:text-gray-400' : null }`}
         // className="text-lg font-bold text-gray-700 line-through"
         // style={{ textDecoration: props.completed && "line-through" }}
         
@@ -45,7 +45,7 @@ function TodoItem(props) {
             viewBox="0 0 16 16"
           >
             <path
-              className="fill-current text-primary-dark hover:text-red-700"
+              className="fill-current text-primary-dark hover:text-red-700 dark:text-gray-400 dark:hover:text-gray-300"
               d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"
             />
           </svg>

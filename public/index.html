@@ -20,9 +20,10 @@
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div class="font-Abel w-full h-full bg-secondary dark:bg-gray-700 fixed px-6 lg:px-80">
+  <div class="font-Abel w-full h-full bg-secondary dark:bg-gray-700 fixed px-6 lg:px-80 overflow-auto">
 
-    <div id="root"></div>
+    <!-- <div class="w-full h-1/2 bg-logo bg-cover"> </div> -->
+    <div id="root" class="mb-28 lg:mb-20"></div>
     <div id="modal"></div>
 
   </div>
@@ -30,17 +31,3 @@
 </body>
 
 </html>
-<!-- <script>
-  const htmlElement = document.querySelector("html");
-  const toggleButton = document.querySelector("#toggle");
-  const toggleButtonSm = document.querySelector("#toggle-sm");
-
-  console.log('hola',toggleButtonSm);
-
-  toggleButton.addEventListener("click" , () => toggleDarkMode())
-  toggleButtonSm.addEventListener("click" , () => toggleDarkMode())
-
-  const toggleDarkMode = () => {
-      htmlElement.classList.toggle("dark")
-  }
-</script> -->

@@ -15,7 +15,7 @@ function TodoSearch() {
     return  (
         <div className='w-full flex justify-center'>
             <input 
-            className=' w-full bg-gray-100 rounded-lg outline-1 outline-primary p-4 border-2 border-orange-500 text-center font-semibold' 
+            className=' w-full bg-gray-100 rounded-lg outline-1 outline-primary p-4 border-2 border-orange-500 text-center font-semibold dark:bg-gray-500 dark:text-secondary dark:outline-white dark:border-gray-200'
             placeholder="Filtra tus tereas"
             value={searchValue}
             onChange={searchValues}

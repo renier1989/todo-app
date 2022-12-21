@@ -5,7 +5,7 @@ function FooterMobile(props) {
         props.setOpenModal(prevState => !prevState)
     }
 return (
-    <div className="bg-primary w-full h-16 fixed left-0 bottom-0 shadow-md flex space-x-8 items-center justify-center lg:hidden">
+    <div className="bg-primary w-full h-16 fixed left-0 bottom-0 shadow-md flex space-x-8 items-center justify-center lg:hidden dark:bg-gray-600">
     <a href="#" className="">
         <svg
         onClick={buttonClick}
