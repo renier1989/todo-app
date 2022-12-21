@@ -1,6 +1,4 @@
 import React from "react";
-import logo from "../img/logo.png";
-import logoDark from "../img/logo-dark.png";
 
 function Header(props) {
   return (
