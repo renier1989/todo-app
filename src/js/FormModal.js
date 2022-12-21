@@ -22,7 +22,7 @@ function FormModal (){
     return (
         <form onSubmit={onSubmit}>
             <div className=" rounded-md bg-secondary py-6 lg:p-6 text-center text-primary dark:bg-gray-600 dark:text-secondary">
-                <div className='mb-4  text-2xl font-semibold '>Titulo del modal</div>
+                <div className='mb-4  text-2xl font-semibold '>Cual es tu siguiente Tarea ?</div>
                 <div>
                     <textarea 
                     className='border-1 rounded-md border-gray-600 w-5/6 lg:w-full lg:p-1 outline outline-1 focus:outline-primary-dark shadow-xl font-semibold dark:bg-gray-500 dark:focus:outline-gray-800'
